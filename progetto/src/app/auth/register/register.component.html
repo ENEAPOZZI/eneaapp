@@ -1,0 +1,61 @@
+
+
+<div class="register-wrapper d-flex justify-content-center align-items-center">
+
+  <form class="d-flex flex-column gap-3 p-5 col-6 m-auto text-white" #registerForm="ngForm" (ngSubmit)="signUp()">
+
+    <h1 class="fw-bold">REGISTRATI</h1>
+
+
+    <p class="fs-5 mb-0 mt-1 tb">Nome</p>
+    <input type="text" name="firstName" [(ngModel)]="registerData.nome" #firstName="ngModel"
+      class="form-control" placeholder="nome" required>
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger fw-bold">
+      Nome obbligatorio
+    </div>
+
+    <p class="fs-5 mb-0 mt-1 tb">Cognome</p>
+    <input type="text" name="lastName" [(ngModel)]="registerData.cognome" #lastName="ngModel"
+      class="form-control" placeholder="cognome" required>
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger fw-bold">
+      Cognome obbligatorio
+    </div>
+
+
+    <p class="fs-5 mb-0 mt-1 tb">Username</p>
+    <input type="text" name="username" [(ngModel)]="registerData.username" #username="ngModel"
+    class="form-control" placeholder="username" required>
+    <div *ngIf="username.invalid && (lastName.dirty || lastName.touched)" class="text-danger fw-bold">
+      username obbligatorio
+    </div>
+
+
+    <p class="fs-5 mb-0 mt-1 tb">Ruoli</p>
+    <select id="ruoli" class="form-select" [(ngModel)]="registerData.ruolo" name="ruoli" required #ruoli="ngModel" >
+      <option  selected>Scegli un ruolo</option>
+      <option value="user">User</option>
+      <option value="organizzatore">organizzatore</option>
+    </select>
+    <div *ngIf="ruoli.invalid && (ruoli.dirty || ruoli.touched)" class="text-danger fw-bold">
+      ruolo obbligatorio
+    </div>
+
+    <p class="fs-5 mb-0 mt-1 tb">Email</p>
+    <input type="email" name="email" [(ngModel)]="registerData.email" #email="ngModel"
+      class="form-control register-text" placeholder="email" required email>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger fw-bold">
+      Email obbligatoria e deve essere in formato corretto
+    </div>
+
+    <p class="fs-5 mb-0 mt-1 tb">Password</p>
+    <input type="password" name="password" [(ngModel)]="registerData.password" #password="ngModel"
+      class="form-control register-text" placeholder="password" required>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger fw-bold">
+      Password obbligatoria
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid" class="btn  mt-2 btn-primary">Registrati</button>
+    <div *ngIf="registerForm.invalid" > Compila tutti i campi per poter proseguire. </div>
+
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-4">
+
+  <h2>Aggiungi Nuovo Evento</h2>
+  <form [formGroup]="eventoForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" id="nome" class="form-control" formControlName="nome">
+      <div *ngIf="eventoForm.get('nome')?.invalid && eventoForm.get('nome')?.touched" class="text-danger">
+        Nome è richiesto
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="descrizione" class="form-label">Descrizione</label>
+      <textarea id="descrizione" class="form-control" formControlName="descrizione"></textarea>
+      <div *ngIf="eventoForm.get('descrizione')?.invalid && eventoForm.get('descrizione')?.touched" class="text-danger">
+        Descrizione è richiesta
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroMassimoPrenotazioni" class="form-label">Numero Massimo Prenotazioni</label>
+      <input type="number" id="numeroMassimoPrenotazioni" class="form-control" formControlName="numeroMassimoPrenotazioni">
+      <div *ngIf="eventoForm.get('numeroMassimoPrenotazioni')?.invalid && eventoForm.get('numeroMassimoPrenotazioni')?.touched" class="text-danger">
+        Numero Massimo Prenotazioni è richiesto
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="luogo" class="form-label">Luogo</label>
+      <input type="text" id="luogo" class="form-control" formControlName="luogo">
+      <div *ngIf="eventoForm.get('luogo')?.invalid && eventoForm.get('luogo')?.touched" class="text-danger">
+        Luogo è richiesto
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="provincia" class="form-label">Provincia</label>
+      <input type="text" id="provincia" class="form-control" formControlName="provincia">
+      <div *ngIf="eventoForm.get('provincia')?.invalid && eventoForm.get('provincia')?.touched" class="text-danger">
+        Provincia è richiesta
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo</label>
+      <input type="text" id="tipo" class="form-control" formControlName="tipo">
+      <div *ngIf="eventoForm.get('tipo')?.invalid && eventoForm.get('tipo')?.touched" class="text-danger">
+        Tipo è richiesto
+      </div>
+    </div>
+
+    <button type="submit" class="btn ">Crea Evento</button>
+  </form>
+</div>

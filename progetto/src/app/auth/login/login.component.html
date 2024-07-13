@@ -1,0 +1,16 @@
+<div class="login-wrapper d-flex justify-content-center align-items-center">
+  <form class="d-flex flex-column gap-3 text-white p-5 col-6 m-auto" (ngSubmit)="signIn()">
+    <h1>Accedi</h1>
+    <div *ngIf="!loginData.username || !loginData.password" class="alert alert-danger" role="alert">
+      Inserisci email e password
+    </div>
+
+    <input type="email" name="email" [(ngModel)]="loginData.username" class="form-control login-text" placeholder="username">
+    <input type="password" name="password" [(ngModel)]="loginData.password" class="form-control login-text" placeholder="password">
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary w-100">Accedi</button>
+      <div *ngIf="errorMessage" class="text-danger fw-bold" role="alert">{{ errorMessage }}</div>
+    </div>
+
+  </form>
+</div>

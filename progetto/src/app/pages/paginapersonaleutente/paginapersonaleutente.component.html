@@ -1,0 +1,40 @@
+
+
+<div *ngIf="currentUser" class="mt-5">
+  <h2>Benvenuto, nella tua area personale {{ currentUser.nome }} {{ currentUser.cognome }}</h2>
+
+
+  <h4 class="mt-3">Dati personali:</h4>
+  <p>Nome: {{ currentUser.cognome }}</p>
+  <p>Cognome: {{ currentUser.cognome }}</p>
+  <p>Email: {{ currentUser.email }}</p>
+
+</div>
+
+
+<div *ngIf="noOrganizer">
+
+  <h3 class="fw-bold mt-5 mb-3">Ecco gli eventi che stanno aspettando</h3>
+
+  <div class="card bg-dark text-white" *ngFor="let evento of  eventi$ | async">
+    <div class="card-body d-flex justify-content-between">
+      <h5 class="card-title">{{ evento.nome }}</h5>
+      <button type="button" class="btn btn-danger"(click)="cancellaIscrizioneDaEvento(evento.id)">Cancella Iscrizione</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="yesOrganizer">
+  <h3 class="fw-bold mt-5 mb-3">Ecco gli eventi organizzati</h3>
+
+
+  <div class="card bg-dark text-white" *ngFor="let evento of  organizedEvents$ | async">
+    <div class="card-body d-flex justify-content-between">
+      <h5 class="card-title">{{ evento.nome }}</h5>
+    <button type="button" class="btn btn-danger"(click)="eliminaEvento(evento.id)">Elimina Evento</button>
+    </div>
+  </div>
+
+</div>

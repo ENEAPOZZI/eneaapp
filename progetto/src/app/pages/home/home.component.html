@@ -1,0 +1,19 @@
+
+
+
+<p *ngIf="user" class="fs-1 mt-5">Benvenuto {{user?.nome}}  pronto per diverti</p>
+
+
+
+<p class="fs-3 mt-5"> Ecco un anteprima degli eventi per te </p>
+
+<div class="d-flex flex-wrap ">
+
+    <div class="card text-bg-dark mb-3 m-2"  *ngFor="let evento of eventi">
+      <div class="card-body">
+        <h5 class="card-title">{{evento.nome}}</h5>
+        <p class="card-text">Luogo: {{evento.luogo}}</p>
+        <p class="card-text"> Provincia: {{evento.provincia}}</p>
+      </div>
+    </div>
+</div>

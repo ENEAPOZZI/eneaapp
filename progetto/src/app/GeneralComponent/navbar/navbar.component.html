@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg  bg-dark border-bottom border-body">
+
+  <div class="container-fluid d-flex justify-content-gl-between ">
+
+    <div>
+      <a class="navbar-brand" id="title" routerLink="/home">EventsFound</a>
+
+    </div>
+
+    <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          <li class="nav-item" *ngIf="!isOrganizer && isUserLoggedIn">
+            <a class="nav-link" id='eventi' aria-current="page" routerLink="/eventi">Eventi</a>
+          </li>
+
+          <li class="nav-item"  *ngIf="isUserLoggedIn">
+            <a class="nav-link" [routerLink]="['/pagina-utente', user?.id]">
+              <i class="bi bi-person-vcard ciao"></i>
+            </a>
+          </li>
+
+
+          <li class="nav-item" *ngIf="isOrganizer && isUserLoggedIn">
+            <a class="nav-link" routerLink="/aggiungi-evento">
+              <i class="bi bi-plus-square custom-icon ciao"></i>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="!isUserLoggedIn" >
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" >
+              <i id="persona" class="bi bi-person"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/auth/register">Register</a></li>
+              <li><a class="dropdown-item" routerLink="/auth/login">Login</a></li>
+            </ul>
+          </li>
+          <button (click)="logout()" *ngIf="isUserLoggedIn" class=" btn btn-danger me-2">Esci</button>
+
+        </ul>
+
+      </div>
+    </div>
+</nav>
+
